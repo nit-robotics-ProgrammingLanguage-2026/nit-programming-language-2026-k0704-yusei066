@@ -1,7 +1,7 @@
 #include <stdio.h>
-int f(int x)
-{static int times=0;
-    times+=x;
+int kakezan(int kakeru)
+{static int times=0; /*初期化処理は最初の1回のみ。同じ関数が呼び出されたときも、前回の値をそのまま引き継ぐ。*/
+    times+=kakeru;
     return times;
 }
 int main(void)
@@ -9,10 +9,10 @@ int main(void)
     scanf("%d",&nyuuryoku);
     if(nyuuryoku<1||nyuuryoku>10){printf("NG");
         return 0;
-    }for(int i=1;
-        i<=nyuuryoku;
-        i++)
-        {result=f(i*2);
+    }for(int loop=1;
+        loop<=nyuuryoku;
+        loop++)
+        {result=kakezan(loop*2); /*入力した値を2倍にしてkakezan関数に渡す*/
         }
         printf("%d",result);
         return 0;
